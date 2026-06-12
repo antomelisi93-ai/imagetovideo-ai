@@ -196,5 +196,30 @@ margin-top:50px;
 <p>© 2025 ImageToVideo AI</p>
 </footer>
 
-</body>
+</body><script>
+document.getElementById('btnGenera').addEventListener('click', async () => {
+    const fileInput = document.querySelector('input[type="file"]');
+    const file = fileInput.files[0];
+
+    if (!file) {
+        alert("Carica prima un'immagine!");
+        return;
+    }
+
+    const formData = new FormData();
+    formData.append("image", file);
+
+    // Mandiamo l'immagine al "Motore"
+    const response = await fetch("http://127.0.0.1:8188/upload/image", {
+        method: "POST",
+        body: formData
+    });
+
+    if (response.ok) {
+        alert("Immagine caricata nel motore! Ora il video sta per partire...");
+    } else {
+        alert("Errore: il motore non risponde.");
+    }
+});
+</script>
 </html>
