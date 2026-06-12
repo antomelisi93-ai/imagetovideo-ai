@@ -138,57 +138,26 @@ margin-top:50px;
 <h2>Carica un'immagine</h2>
 <p>Seleziona una foto per iniziare</p>
 <br>
-<input type="file">
+<input type="file" id="fileInput">
 <br><br>
-<button class="btn">Genera Video</button>
+<button class="btn" id="btnGenera">Genera Video</button>
 </div>
 
 <section class="section" id="pricing">
 <h2 style="text-align:center;margin-bottom:40px;">Prezzi</h2>
-
 <div class="cards">
-
-<div class="card">
-<h3>Free</h3>
-<div class="price">€0</div>
-<p>1 video gratuito</p>
-</div>
-
-<div class="card">
-<h3>Pro</h3>
-<div class="price">€29</div>
-<p>100 video al mese</p>
-</div>
-
-<div class="card">
-<h3>Business</h3>
-<div class="price">€99</div>
-<p>Video illimitati</p>
-</div>
-
+<div class="card"><h3>Free</h3><div class="price">€0</div><p>1 video gratuito</p></div>
+<div class="card"><h3>Pro</h3><div class="price">€29</div><p>100 video al mese</p></div>
+<div class="card"><h3>Business</h3><div class="price">€99</div><p>Video illimitati</p></div>
 </div>
 </section>
 
 <section class="section" id="faq">
 <h2 style="text-align:center;margin-bottom:40px;">FAQ</h2>
-
 <div class="cards">
-
-<div class="card">
-<h3>Come funziona?</h3>
-<p>Carichi una foto e l'AI genera un video.</p>
-</div>
-
-<div class="card">
-<h3>Quanto tempo serve?</h3>
-<p>Da pochi secondi a qualche minuto.</p>
-</div>
-
-<div class="card">
-<h3>Posso usarlo per social media?</h3>
-<p>Sì, i video sono perfetti per TikTok, Instagram e YouTube.</p>
-</div>
-
+<div class="card"><h3>Come funziona?</h3><p>Carichi una foto e l'AI genera un video.</p></div>
+<div class="card"><h3>Quanto tempo serve?</h3><p>Da pochi secondi a qualche minuto.</p></div>
+<div class="card"><h3>Posso usarlo per social media?</h3><p>Sì, i video sono perfetti per TikTok, Instagram e YouTube.</p></div>
 </div>
 </section>
 
@@ -196,9 +165,9 @@ margin-top:50px;
 <p>© 2025 ImageToVideo AI</p>
 </footer>
 
-</body><script>
+<script>
 document.getElementById('btnGenera').addEventListener('click', async () => {
-    const fileInput = document.querySelector('input[type="file"]');
+    const fileInput = document.getElementById('fileInput');
     const file = fileInput.files[0];
 
     if (!file) {
@@ -209,17 +178,22 @@ document.getElementById('btnGenera').addEventListener('click', async () => {
     const formData = new FormData();
     formData.append("image", file);
 
-    // Mandiamo l'immagine al "Motore"
-    const response = await fetch("http://127.0.0.1:8188/upload/image", {
-        method: "POST",
-        body: formData
-    });
+    try {
+        // Invio al motore
+        const response = await fetch("http://127.0.0.1:8188/upload/image", {
+            method: "POST",
+            body: formData
+        });
 
-    if (response.ok) {
-        alert("Immagine caricata nel motore! Ora il video sta per partire...");
-    } else {
-        alert("Errore: il motore non risponde.");
+        if (response.ok) {
+            alert("Immagine caricata! Ora il motore sta lavorando.");
+        } else {
+            alert("Errore: il motore non risponde. Controlla che ComfyUI sia acceso con --listen");
+        }
+    } catch (error) {
+        alert("Impossibile connettersi al motore AI.");
     }
 });
 </script>
+</body>
 </html>
