@@ -1,11 +1,200 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="it">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ImageToVideo AI</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#050816;
+color:white;
+}
+
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 10%;
+background:#0b1020;
+}
+
+.logo{
+font-size:24px;
+font-weight:bold;
+color:#00bfff;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin-left:20px;
+}
+
+.hero{
+text-align:center;
+padding:100px 20px;
+}
+
+.hero h1{
+font-size:60px;
+margin-bottom:20px;
+}
+
+.hero span{
+color:#00bfff;
+}
+
+.hero p{
+font-size:20px;
+color:#cccccc;
+margin-bottom:30px;
+}
+
+.btn{
+background:#00bfff;
+padding:15px 30px;
+border:none;
+border-radius:10px;
+color:white;
+font-size:18px;
+cursor:pointer;
+}
+
+.upload{
+max-width:700px;
+margin:50px auto;
+padding:40px;
+border:2px dashed #00bfff;
+border-radius:20px;
+text-align:center;
+}
+
+.upload input{
+margin-top:20px;
+}
+
+.section{
+padding:80px 10%;
+}
+
+.cards{
+display:flex;
+gap:20px;
+flex-wrap:wrap;
+justify-content:center;
+}
+
+.card{
+background:#111827;
+padding:30px;
+border-radius:15px;
+width:280px;
+}
+
+.card h3{
+margin-bottom:15px;
+}
+
+.price{
+font-size:40px;
+color:#00bfff;
+margin:15px 0;
+}
+
+footer{
+text-align:center;
+padding:40px;
+background:#0b1020;
+margin-top:50px;
+}
+</style>
 </head>
+
 <body>
-<h1>ImageToVideo AI</h1>
-<p>Il mio primo sito online.</p>
+
+<nav>
+<div class="logo">ImageToVideo AI</div>
+<div>
+<a href="#pricing">Prezzi</a>
+<a href="#faq">FAQ</a>
+</div>
+</nav>
+
+<section class="hero">
+<h1>Trasforma Immagini in <span>Video AI</span></h1>
+<p>Crea video professionali da una singola foto in pochi secondi.</p>
+<button class="btn">Inizia Gratis</button>
+</section>
+
+<div class="upload">
+<h2>Carica un'immagine</h2>
+<p>Seleziona una foto per iniziare</p>
+<br>
+<input type="file">
+<br><br>
+<button class="btn">Genera Video</button>
+</div>
+
+<section class="section" id="pricing">
+<h2 style="text-align:center;margin-bottom:40px;">Prezzi</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>Free</h3>
+<div class="price">€0</div>
+<p>1 video gratuito</p>
+</div>
+
+<div class="card">
+<h3>Pro</h3>
+<div class="price">€29</div>
+<p>100 video al mese</p>
+</div>
+
+<div class="card">
+<h3>Business</h3>
+<div class="price">€99</div>
+<p>Video illimitati</p>
+</div>
+
+</div>
+</section>
+
+<section class="section" id="faq">
+<h2 style="text-align:center;margin-bottom:40px;">FAQ</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>Come funziona?</h3>
+<p>Carichi una foto e l'AI genera un video.</p>
+</div>
+
+<div class="card">
+<h3>Quanto tempo serve?</h3>
+<p>Da pochi secondi a qualche minuto.</p>
+</div>
+
+<div class="card">
+<h3>Posso usarlo per social media?</h3>
+<p>Sì, i video sono perfetti per TikTok, Instagram e YouTube.</p>
+</div>
+
+</div>
+</section>
+
+<footer>
+<p>© 2025 ImageToVideo AI</p>
+</footer>
+
 </body>
 </html>
